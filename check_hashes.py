@@ -1,17 +1,18 @@
-# path to the file containing filenames with original hash
-hash_files=open('hashed_files.txt', 'r')
-# path to the file containing filenames to check with original hash
-check_files=open('check_hashes.txt', 'r')
-
 # get file names in list with original hash
 hash_list=[]
-for line in hash_files:
-    hash_list.append(line.rstrip())
+# path to the file containing filenames with original hash
+with open('hashed_files.txt', 'r') as hash_files:
+    for line in hash_files:
+        hash_list.append(line.rstrip())
+
 
 # get file names with hash in list, to check with original file hash
 check_list=[]
-for line in check_files:
-    check_list.append(line.rstrip())
+# path to the file containing filenames to check with original hash
+with open('check_hashes.txt', 'r') as check_files:
+    for line in check_files:
+        check_list.append(line.rstrip())
+
 
 # below list to compare if file exist but hash broken from original
 without_hash_list=[]
@@ -35,6 +36,7 @@ for item in hash_list:
 
 for file in result_list:
     print(file)
+
 
 
 
